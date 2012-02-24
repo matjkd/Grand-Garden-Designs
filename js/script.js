@@ -1,3 +1,4 @@
+
 // remap jQuery to $
 (function($){
 
@@ -25,7 +26,17 @@ window.log = function(){
     }
 };
 
-
+$(document).ready(function() {
+    $('.slideshow').cycle({
+speedIn:  2000,
+	    speedOut: 2000,
+	   timeout:   10000,
+		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+$('.slideshow').css("display", "block");
+});
+       
+  $.backstretch("https://s3-eu-west-1.amazonaws.com/grandgardendesigns/background.jpg");
 
 // catch all document.write() calls
 (function(doc){
@@ -197,8 +208,4 @@ $(document).ready(function() {
     });
 
 
-});
-
-$(function(){
-    $("#paginate").pagination();
 });

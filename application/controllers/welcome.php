@@ -27,6 +27,7 @@ class Welcome extends MY_Controller {
             $data['sidebox'] = $row->sidebox;
             $data['metatitle'] = $row->meta_title;
             $data['meta_description'] = $row->meta_desc;
+            $data['slideshow_active'] = $row->slideshow;
         endforeach;
         $data['sidebar'] = "sidebox/side";
         $data['main_content'] = "global/" . $this->config_theme . "/content";
@@ -64,7 +65,7 @@ class Welcome extends MY_Controller {
             $data['title'] = $row->title;
             $data['sidebox'] = $row->sidebox;
             $data['metatitle'] = $row->meta_title;
-
+  $data['slideshow_active'] = $row->slideshow;
         endforeach;
         $data['sidebar'] = "sidebox/side";
         $data['main_content'] = "global/" . $this->config_theme . "/content";

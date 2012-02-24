@@ -1,5 +1,5 @@
 <style type="text/css">
-    .slideshow { height: 200px; width: 960px; margin: auto; border-bottom:15px solid #161616; }
+    .slideshow { height: 377px; width: 927px; margin: auto; border-bottom:0px solid #161616; }
     .slideshow img { padding:0px; border: 0px solid #ccc;   }
 </style>
 <script type="text/javascript">
@@ -8,10 +8,10 @@
 <div class="slide_area" >
 
     <div class="slideshow" style="display:none;">
-        <img width="960px"   height="200px" src="<?= base_url() ?>images/slides/slide1.png"/>
-        <img width="960px"   height="200px" src="<?= base_url() ?>images/slides/slide2.png"/>
-        <img width="960px"   height="200px" src="<?= base_url() ?>images/slides/slide3.png"/>
-
+        <img width="926px"   height="377px" src="<?= base_url() ?>images/slides/HomeSlide_1.jpg"/>
+        <img width="926px"   height="377px" src="<?= base_url() ?>images/slides/HomeSlide_2.jpg"/>
+         <img width="926px"   height="377px" src="<?= base_url() ?>images/slides/HomeSlide_3.jpg"/>
+ <img width="926px"   height="377px" src="<?= base_url() ?>images/slides/HomeSlide_4.jpg"/>
     </div>
 
 
