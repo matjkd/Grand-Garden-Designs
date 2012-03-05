@@ -26,9 +26,9 @@
 
 
     <!--add image if set-->
-    <?php if (isset($row->news_image) && $row->news_image != NULL) { ?> 
-        <div style="float:left; width:300px; padding:10px 10px 0 0;">
-            <img width="300px" src="<?= base_url() ?>/images/template/garden/pics/<?= $row->news_image ?>"  />
+    <?php if (isset($row->sidebox) && $row->sidebox != NULL) { ?> 
+        <div style="float:right; padding:10px 0px 0 10px;">
+            <img width="300px" src="<?= base_url() ?>images/photos/<?= $row->sidebox ?>"  />
             <em><?php if (isset($row->caption)) {
             echo $row->caption;
         } ?></em>
@@ -46,3 +46,4 @@
         <?= $this->load->view('extra/' . $row->extra) ?>
     <?php } ?>
 <?php endforeach; ?>
+    <div style="clear:both;"></div>

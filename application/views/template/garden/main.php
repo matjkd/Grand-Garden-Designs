@@ -27,11 +27,10 @@
     <div id="container">
         <?php if (isset($slideshow_active) && $slideshow_active == 1) { ?>    
         <?= $this->load->view('slideshow/slideshow') ?>
-        <?php } else { ?>
+        <?php }  ?>
 
             <?= $this->load->view($main_content) ?>   
 
-        <?php } ?>
 
     </div> 
 
@@ -40,7 +39,12 @@
         <?= $this->load->view('global/garden/footer_menu') ?>
 
     </div>
-
+    <div class="bottom_menu">
+    <div class="footermenu" >
+ <?= $this->load->view('global/garden/menu') ?> 
+    </div>
+        
+    </div>
     <!--! end of #container -->
     <?= $this->load->view('global/footer') ?>
 

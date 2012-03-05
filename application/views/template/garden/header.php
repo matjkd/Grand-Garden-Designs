@@ -32,8 +32,7 @@ if (isset($meta_description) && $meta_description != NULL) {
 <link rel="apple-touch-icon" href="<?= base_url() ?>apple-touch-icon.png">
 
 <!-- Load google fonts-->
-<link href='http://fonts.googleapis.com/css?family=Spinnaker' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fanwood+Text' rel='stylesheet' type='text/css'>
 
 <!-- CSS : implied media="all" -->
 <link rel="stylesheet" href="<?= base_url() ?>css/custom-theme/jquery-ui-1.8.9.custom.css">

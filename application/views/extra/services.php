@@ -1,20 +1,58 @@
-<div style="margin-top:20px;">
-<div style="float:left; margin-right:20px">
-    
-    <a href="<?=base_url()?>welcome/home/door2door"><img height="185px" src="<?=base_url()?>images/template/flyerdirect/door2door.png" /></a>
-</div>
+<div id="services_container">
+    <div class="services">
+        <div>
+            <img src="<?= base_url() ?>images/photos/Services_Landscapes.jpg"/>
+        </div>
+        <div id="title">
+            <h2>Gardens &amp; Landscapes<h2>
+        </div>
+    </div>
 
-<div style="float:left; margin-right:20px">
-    
-  <a href="<?=base_url()?>welcome/home/business2business"><img height="185px" src="<?=base_url()?>images/template/flyerdirect/business2business.png" /></a>
-</div>
+    <div class="services">
+        <div>
+            <img src="<?= base_url() ?>images/photos/Services_Patios.jpg"/>
+        </div>
+        <div id="title">
+            <h2>Patios</h2>
+        </div>
+    </div>
 
-<div style="float:left;">
-    
-  <a href="<?=base_url()?>welcome/home/hand2hand"><img height="185px" src="<?=base_url()?>images/template/flyerdirect/hand2hand.png" /></a>
-</div>
-</div>
-<div style="clear:both;">
-<p>FlyersDirect now offers you the option to partner with one of our knowledgeable and experienced design companies in London to design your flyers. Just click 
-the design link to the left for more info. We also broker a printing quote for our customers providing a competitive price. Just click our  print link for more info.</p>
+    <div class="services">
+        <div>
+            <img src="<?= base_url() ?>images/photos/Services_OutdoorBuildings.jpg"/>
+        </div>
+        <div id="title">
+            <h2>Outdoor Buildings</h2>
+        </div>
+    </div>
+
+o when 
+    <div class="services">
+        <div>
+            <img src="<?= base_url() ?>images/photos/Services_Driveways.jpg"/>
+        </div>
+        <div id="title">
+            <h2>Driveways</h2>
+        </div>
+    </div>
+
+    <div class="services">
+        <div>
+            <img src="<?= base_url() ?>images/photos/Services_PondsandPools.jpg"/>
+        </div>
+        <div id="title">
+            <h2>Ponds &amp; Pools</h2>
+               
+        </div>
+    </div>
+
+    <div class="services">
+        <div>
+            <img src="<?= base_url() ?>images/photos/Services_WallsGatesRailings.jpg"/>
+        </div>
+        <div id="title">
+            <h2>Walls, Gates &amp; Railings</h2>
+        </div>
+    </div>
+
 </div>

@@ -55,7 +55,14 @@ jQuery(function() {
     jQuery('.wymeditor').wymeditor();
 });
 
-
+$("#title h2").hover(
+  function () {
+    $(this).css('color', '#000000');
+  },
+   function () {
+   $(this).css('color', '#319825');
+  }
+);
 
 
 

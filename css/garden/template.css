@@ -15,28 +15,30 @@ body {
 
 .classname{ font:24px normal normal BrushScriptStdMedium;}
 h1 {
-    font-family: 'Raleway', serif;
-    font-size: 20px;
+    font-family: 'Fanwood Text', serif;
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
     text-shadow: none;
     text-decoration: none;
-    text-transform: none;
+     text-transform: uppercase;
     letter-spacing: 0em;
     word-spacing: 0em;
     line-height: 1.2;
+    color:#319825;
 }
 h2 {
-    font-family: 'Raleway', serif;
+font-family: 'Fanwood Text', serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
     text-shadow: none;
     text-decoration: none;
-    text-transform: none;
+    text-transform: uppercase;
     letter-spacing: 0em;
     word-spacing: 0em;
     line-height: 1.2;
+      color:#319825;
 }
 p {
 
@@ -67,11 +69,16 @@ padding:17px;
 }
 #bottomfooter {
     background: url('images/footer.jpg') no-repeat #2a8424;
-    height:160px;
-    width:960px;
+    height:46px;
+    width:926px;
     margin: 0px auto;
-
-    color:#bbbbbb;
+padding:97px 17px 17px 17px;
+    color:#ffffff;
+}
+.bottom_menu {
+     width:960px;
+    margin: 0px auto;
+padding:0px;
 }
 #logo {
     float:left;
@@ -121,7 +128,8 @@ padding:17px;
 .footermenu {
     clear:both;
     float:left; 
-    padding-top:20px;
+  
+    
     position:relative; 
     padding-left:0px;
 
@@ -141,7 +149,7 @@ padding:17px;
 
 .footermenu a {
     text-decoration:none;
-    color: #aaa;
+    color: #fff;
     border-right:1px #292929;
 
 }
@@ -171,12 +179,12 @@ padding:17px;
     color: #ffffff; 
 }
 
-#slide_area { 
+.slide_area { 
     z-index:100;
-    background:url('/images/backgrounds/black50.png');
-    width:960px;
-    height:200px;
+ 
+
     position:relative;
+    margin-bottom: 20px;
 
 
 
@@ -279,4 +287,21 @@ input:focus, textarea:focus {
     max-width: 400px;
     height: 150px;
     line-height: 150%;
+}
+
+.services {
+    
+    float:left;
+    padding:20px 30px;
+    
+}
+
+#services_container {
+    margin: 0 auto;
+    width:756px;
+}
+#title h2 {
+    text-transform: uppercase;
+    text-align: center;
+    
 }

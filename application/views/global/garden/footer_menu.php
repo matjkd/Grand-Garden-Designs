@@ -1,9 +1,15 @@
 
 
 <div class="footermenu" >
-    <?= $this->load->view('global/garden/menu') ?> 
+    <div style="float:left; width: 400px;">
+   
     Copyright &copy; <?= $config_company_name ?> 
     <br/>
-    e:<a href="mailto:<?= $config_email ?>"><?= $config_email ?></a> 
-
+    Website by: Hotegg Creative Design Ltd.
+    </div>
+    
+    
+     <div style="float:left; width: 400px;">
+        <img src="<?=base_url()?>css/garden/images/footertext.png"/>
+    </div>
 </div>
