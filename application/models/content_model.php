@@ -14,7 +14,17 @@ class Content_model extends CI_Model {
         $this->db->where('menu', $title);
         $query = $this->db->get('content');
         if ($query->num_rows == 1)
-            ; {
+             {
+            return $query->result();
+        }
+    }
+    
+    function get_gallery($gallery) {
+
+        $this->db->where('gallery', $gallery);
+        $query = $this->db->get('content');
+        if ($query->num_rows > 0)
+           {
             return $query->result();
         }
     }
@@ -24,7 +34,7 @@ class Content_model extends CI_Model {
         $this->db->where('category', 'seo');
         $query = $this->db->get('content');
         if ($query->num_rows > 0)
-            ; {
+            {
             return $query->result();
         }
     }
@@ -152,6 +162,7 @@ class Content_model extends CI_Model {
             'menu' =>  $menu_link,
             'category' => set_value('category'),
             'added_by' => $name,
+            'gallery' => $this->input->post('gallery'),
             'date_added' => $datetime
         );
         $insert = $this->db->insert('content', $form_data);

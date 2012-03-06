@@ -81,6 +81,14 @@ class Welcome extends MY_Controller {
         $this->load->vars($data);
         $this->load->view('template/main');
     }
+    
+    function gallery($gallery) {
+         $data['content'] = $this->content_model->get_gallery($gallery);
+         $data['main_content'] = "global/gallery";
+         $this->load->vars($data);
+        $this->load->view('template/main');
+        
+    }
 
     function main() {
         $segment_active = $this->uri->segment(3);

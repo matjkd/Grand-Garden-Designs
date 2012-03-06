@@ -14,7 +14,18 @@
 
     })(this.jQuery);
 
+$(document).ready(function() {
 
+$.backstretch("https://s3-eu-west-1.amazonaws.com/grandgardendesigns/background.jpg");
+});
+
+//overlay
+$(document).ready(function() {
+
+
+
+$("img[rel]").overlay();
+});
 
 // usage: log('inside coolFunc',this,arguments);
 // paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
@@ -36,7 +47,7 @@ $(document).ready(function() {
     $('.slideshow').css("display", "block");
 });
        
-$.backstretch("https://s3-eu-west-1.amazonaws.com/grandgardendesigns/background.jpg");
+
 
 // catch all document.write() calls
 (function(doc){
