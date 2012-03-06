@@ -10,8 +10,8 @@
     <div class="slideshow" style="display:none;">
         <img width="926px"   height="377px" src="<?= base_url() ?>images/slides/HomeSlide_1.jpg"/>
         <img width="926px"   height="377px" src="<?= base_url() ?>images/slides/HomeSlide_2.jpg"/>
-         <img width="926px"   height="377px" src="<?= base_url() ?>images/slides/HomeSlide_3.jpg"/>
- <img width="926px"   height="377px" src="<?= base_url() ?>images/slides/HomeSlide_4.jpg"/>
+        <img width="926px"   height="377px" src="<?= base_url() ?>images/slides/HomeSlide_3.jpg"/>
+        <img width="926px"   height="377px" src="<?= base_url() ?>images/slides/HomeSlide_4.jpg"/>
     </div>
 
 

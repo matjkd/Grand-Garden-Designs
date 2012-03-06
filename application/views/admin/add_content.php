@@ -40,6 +40,6 @@ Content:<br/>
 <textarea cols=75 rows=20 name="content" id="content"  class='wymeditor'></textarea>
 
 </p>
-<input type="submit" class="wymupdate" />
+<input type="submit" name="upload" class="wymupdate" />
 
 <?= form_close() ?> 

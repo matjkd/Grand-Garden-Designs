@@ -1436,10 +1436,6 @@ final class S3Request {
 
 		curl_setopt($curl, CURLOPT_URL, $url);
 
-                 //this is a fix for the bytemark server, post needs to go through proxy
-                curl_setopt($curl, CURLOPT_PROXYPORT, 3128);
-                curl_setopt($curl, CURLOPT_PROXY, 'localhost');
-
 		// Headers
 		$headers = array();
 		$amz = array();
