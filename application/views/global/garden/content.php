@@ -3,7 +3,16 @@
 
 
 <?php foreach ($content as $row): ?>
+  <!--add image if set-->
+    <?php if (isset($row->sidebox) && $row->sidebox != NULL) { ?> 
+        <div style="float:right; padding:0px 0px 0 10px;">
+            <img  src="<?= base_url() ?>images/photos/<?= $row->sidebox ?>"  />
+            <em><?php if (isset($row->caption)) {
+            echo $row->caption;
+        } ?></em>
+        </div>
 
+    <?php } ?>
     <h1><?= $row->title ?></h1>
 
     <?php
@@ -25,16 +34,7 @@
     <?php $body = str_replace("Grand Garden Design", "<strong>Grand Garden Design</strong>", "$body"); ?>
 
 
-    <!--add image if set-->
-    <?php if (isset($row->sidebox) && $row->sidebox != NULL) { ?> 
-        <div style="float:right; padding:10px 0px 0 10px;">
-            <img width="300px" src="<?= base_url() ?>images/photos/<?= $row->sidebox ?>"  />
-            <em><?php if (isset($row->caption)) {
-            echo $row->caption;
-        } ?></em>
-        </div>
-
-    <?php } ?>
+  
 
     <?= $body ?>
 

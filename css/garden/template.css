@@ -26,10 +26,11 @@ h1 {
     word-spacing: 0em;
     line-height: 1.2;
     color:#319825;
+    margin-bottom:5px;
 }
 h2 {
 font-family: 'Fanwood Text', serif;
-    font-size: 15px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 700;
     text-shadow: none;
@@ -56,7 +57,7 @@ p {
 }
 
 #container {
-    background: #ffffff;
+    background: #fffeed;
 padding:17px;
     width:926px;
     margin: 17px auto 0;

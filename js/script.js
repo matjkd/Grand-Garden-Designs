@@ -28,15 +28,15 @@ window.log = function(){
 
 $(document).ready(function() {
     $('.slideshow').cycle({
-speedIn:  2000,
-	    speedOut: 2000,
-	   timeout:   10000,
-		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-	});
-$('.slideshow').css("display", "block");
+        speedIn:  2000,
+        speedOut: 2000,
+        timeout:   5000,
+        fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+    });
+    $('.slideshow').css("display", "block");
 });
        
-  $.backstretch("https://s3-eu-west-1.amazonaws.com/grandgardendesigns/background.jpg");
+$.backstretch("https://s3-eu-west-1.amazonaws.com/grandgardendesigns/background.jpg");
 
 // catch all document.write() calls
 (function(doc){
@@ -56,13 +56,13 @@ jQuery(function() {
 });
 
 $("#title h2").hover(
-  function () {
-    $(this).css('color', '#000000');
-  },
-   function () {
-   $(this).css('color', '#319825');
-  }
-);
+    function () {
+        $(this).css('color', '#000000');
+    },
+    function () {
+        $(this).css('color', '#319825');
+    }
+    );
 
 
 
