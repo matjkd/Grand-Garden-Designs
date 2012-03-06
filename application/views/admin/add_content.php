@@ -1,4 +1,4 @@
-<?= form_open("admin/submit_content") ?> 
+<?= form_open_multipart("admin/submit_content") ?> 
 
 <p>
     Title:<br/>
@@ -16,6 +16,7 @@ Added By:<br/>
 </p>
 
 
+
 <p>
 Date: <br/>
 <input type="text" name="date_added" id="datepicker" value=""><br/>
@@ -27,6 +28,12 @@ Date: <br/>
 <p>
 Category:<br/>
 <input type="text" name="category" id="datepicker" value="<?= set_value('category', $category) ?>"  disable="disabled" onFocus="this.blur();"><br/>
+</p>
+
+<p class="Image">
+    <?= form_label('Image') ?><br/>
+
+    <?= form_upload('file') ?>
 </p>
 <p>
 Content:<br/>

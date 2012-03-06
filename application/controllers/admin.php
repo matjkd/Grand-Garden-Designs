@@ -9,6 +9,7 @@ class Admin extends MY_Controller {
         $this->load->model('content_model');
         $this->load->model('captcha_model');
         $this->load->model('menu_model');
+        $this->load->library('s3');
     }
 
     function index() {
@@ -70,7 +71,6 @@ class Admin extends MY_Controller {
         if ($this->form_validation->run() == FALSE) { // validation hasn'\t been passed
             echo "validation error";
         } else { // passed validation proceed to post success logic
-
             $id = $this->uri->segment(3);
             $this->content_model->edit_content($id);
 
@@ -168,17 +168,62 @@ class Admin extends MY_Controller {
     function submit_content() {
         $this->form_validation->set_rules('title', 'Title', 'trim|max_length[255]');
         $this->form_validation->set_rules('content', 'Content', 'trim');
-        $this->form_validation->set_rules('menu', 'menu', 'trim|required');
+        $this->form_validation->set_rules('menu', 'menu', 'trim');
         $this->form_validation->set_rules('category', 'Page Type', 'trim|max_length[11]');
         $this->form_validation->set_error_delimiters('<br /><span class="error">', '</span>');
 
         if ($this->form_validation->run() == FALSE) { // validation hasn'\t been passed
             echo "validation error";
         } else { // passed validation proceed to post success logic
-
-
             if ($this->content_model->add_content()) { // the information has therefore been successfully saved in the db
-                redirect('/admin');   // or whatever logic needs to occur
+              //now process the image
+                
+                    // run insert model to write data to db
+                //upload file
+                //retrieve uploaded file
+                if (!empty($_FILES) && $_FILES['file']['error'] != 4) {
+
+                    $fileName = $_FILES['file']['name'];
+                    $tmpName = $_FILES['file']['tmp_name'];
+                    $filelocation = $fileName;
+
+                    $thefile = file_get_contents($tmpName, true);
+
+                    //add filename into database
+                    //get blog id
+                    $blog_id = mysql_insert_id();
+                    $this->content_model->add_file($fileName, $blog_id);
+                    //move the file
+
+                    if ($this->s3->putObject($thefile, "grandgardendesigns", $filelocation, S3:: ACL_PUBLIC_READ)) {
+                        //echo "We successfully uploaded your file.";
+                        $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
+                    } else {
+                        //echo "Something went wrong while uploading your file... sorry.";
+                        $this->session->set_flashdata('message', 'News Added, but your file did not upload');
+                    }
+                } else {
+
+                    $this->session->set_flashdata('message', 'News Added');
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+               // redirect('/admin');   // or whatever logic needs to occur
+            
+                
+                
+                
+                
+                
             } else {
                 echo 'An error occurred saving your information. Please try again later';
                 // Or whatever error handling is necessary
@@ -332,18 +377,18 @@ class Admin extends MY_Controller {
         $data['slideshowtoggle'] = "off";
         $data['main_content'] = "admin/add_content";
         $data['seo_links'] = $this->content_model->get_seo_links();
-         $data['captcha'] = $this->captcha_model->initiate_captcha();
+        $data['captcha'] = $this->captcha_model->initiate_captcha();
         $data['pages'] = $this->content_model->get_all_content();
         $data['category'] = "seo";
         $this->load->vars($data);
         $this->load->view('template/main');
     }
-    
-      function add_testimonial_content() {
+
+    function add_testimonial_content() {
         $data['slideshowtoggle'] = "off";
         $data['main_content'] = "admin/add_content";
         $data['seo_links'] = $this->content_model->get_seo_links();
-         $data['captcha'] = $this->captcha_model->initiate_captcha();
+        $data['captcha'] = $this->captcha_model->initiate_captcha();
         $data['pages'] = $this->content_model->get_all_content();
         $data['category'] = "testimonial";
         $this->load->vars($data);

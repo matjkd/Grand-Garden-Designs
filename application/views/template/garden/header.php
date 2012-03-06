@@ -11,7 +11,7 @@ if (isset($metatitle) && $metatitle != NULL) {
     if (isset($title) && $title != NULL) {
         echo $title;
     } else {
-        echo "FlyerDirect";
+        echo "Grand Garden Design";
     }
 }
 ?></title>
