@@ -68,12 +68,17 @@ class Admin extends MY_Controller {
     }
 
     function edit_content() {
+        $this->form_validation->set_rules('title', 'title', 'trim');
         $this->form_validation->set_rules('menu', 'menu', 'trim|required');
         if ($this->form_validation->run() == FALSE) { // validation hasn'\t been passed
             echo "validation error";
         } else { // passed validation proceed to post success logic
             $id = $this->uri->segment(3);
             $this->content_model->edit_content($id);
+
+
+            $this->upload_image($id);
+
 
             redirect("admin/edit/$id");
         }
@@ -166,8 +171,63 @@ class Admin extends MY_Controller {
         redirect("admin/edit_practice/$id");
     }
 
+    function upload_image($id = 0) {
+
+        $this->gallery_model->do_upload();
+
+
+        if (!empty($_FILES) && $_FILES['file']['error'] != 4) {
+
+            $fileName = $_FILES['file']['name'];
+            $tmpName = $_FILES['file']['tmp_name'];
+            $filelocation = $fileName;
+
+            $thefile = file_get_contents($tmpName, true);
+
+            //add filename into database
+            //get blog id
+            if ($id == 0) {
+                $blog_id = mysql_insert_id();
+            } else {
+                $blog_id = $id;
+            }
+            $this->content_model->add_file($fileName, $blog_id);
+            //move the file
+
+            if ($this->s3->putObject($thefile, "grandgardendesigns", $filelocation, S3:: ACL_PUBLIC_READ)) {
+                //echo "We successfully uploaded your file.";
+                $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
+            } else {
+                //echo "Something went wrong while uploading your file... sorry.";
+                $this->session->set_flashdata('message', 'News Added, but your file did not upload');
+            }
+
+            //uploadthumb
+            $thumblocation = base_url() . 'images/temp/thumbs/' . $fileName;
+            $newfilename = "thumb_" . $fileName;
+
+
+            $newfile = file_get_contents($thumblocation, true);
+
+            if ($this->s3->putObject($newfile, "grandgardendesigns", $newfilename, S3:: ACL_PUBLIC_READ)) {
+                //echo "We successfully uploaded your file.";
+                $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
+            } else {
+                //echo "Something went wrong while uploading your file... sorry.";
+                $this->session->set_flashdata('message', 'News Added, but your file did not upload');
+            }
+//delete files from server
+            $this->gallery_path = "./images/temp";
+            unlink($this->gallery_path . '/' . $fileName . '');
+            unlink($this->gallery_path . '/thumbs/' . $fileName . '');
+        } else {
+
+            $this->session->set_flashdata('message', 'News Added');
+        }
+    }
+
     function submit_content() {
-        $this->form_validation->set_rules('title', 'Title', 'trim|max_length[255]');
+        $this->form_validation->set_rules('title', 'Title', 'trim|max_length[255]|required');
         $this->form_validation->set_rules('content', 'Content', 'trim');
         $this->form_validation->set_rules('menu', 'menu', 'trim');
         $this->form_validation->set_rules('category', 'Page Type', 'trim|max_length[11]');
@@ -181,54 +241,7 @@ class Admin extends MY_Controller {
                 // run insert model to write data to db
                 //upload file
                 //retrieve uploaded file
-                //if ($this->input->post('file')) {
-                $this->gallery_model->do_upload();
-                // }
-
-                if (!empty($_FILES) && $_FILES['file']['error'] != 4) {
-
-                    $fileName = $_FILES['file']['name'];
-                    $tmpName = $_FILES['file']['tmp_name'];
-                    $filelocation = $fileName;
-
-                    $thefile = file_get_contents($tmpName, true);
-
-                    //add filename into database
-                    //get blog id
-                    $blog_id = mysql_insert_id();
-                    $this->content_model->add_file($fileName, $blog_id);
-                    //move the file
-
-                    if ($this->s3->putObject($thefile, "grandgardendesigns", $filelocation, S3:: ACL_PUBLIC_READ)) {
-                        //echo "We successfully uploaded your file.";
-                        $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
-                    } else {
-                        //echo "Something went wrong while uploading your file... sorry.";
-                        $this->session->set_flashdata('message', 'News Added, but your file did not upload');
-                    }
-
-                    //uploadthumb
-                    $thumblocation = base_url() . 'images/temp/thumbs/' . $fileName;
-                    $newfilename = "thumb_" . $fileName;
-                   
-
-                    $newfile = file_get_contents($thumblocation, true);
-
-                    if ($this->s3->putObject($newfile, "grandgardendesigns", $newfilename, S3:: ACL_PUBLIC_READ)) {
-                        //echo "We successfully uploaded your file.";
-                        $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
-                    } else {
-                        //echo "Something went wrong while uploading your file... sorry.";
-                        $this->session->set_flashdata('message', 'News Added, but your file did not upload');
-                    }
-//delete files from server
-                    $this->gallery_path = "./images/temp";
-                    unlink($this->gallery_path . '/' . $fileName . '');
-                    unlink($this->gallery_path . '/thumbs/' . $fileName . '');
-                } else {
-
-                    $this->session->set_flashdata('message', 'News Added');
-                }
+                $this->upload_image();
 
 
 
@@ -240,7 +253,8 @@ class Admin extends MY_Controller {
 
 
 
-                 redirect('/admin');   // or whatever logic needs to occur
+
+                redirect('/admin');   // or whatever logic needs to occur
             } else {
                 echo 'An error occurred saving your information. Please try again later';
                 // Or whatever error handling is necessary
@@ -411,8 +425,8 @@ class Admin extends MY_Controller {
         $this->load->vars($data);
         $this->load->view('template/main');
     }
-    
-        function add_gallery_content() {
+
+    function add_gallery_content() {
         $data['slideshowtoggle'] = "off";
         $data['main_content'] = "admin/add_content";
         $data['seo_links'] = $this->content_model->get_seo_links();

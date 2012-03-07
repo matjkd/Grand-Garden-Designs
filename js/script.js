@@ -16,7 +16,7 @@
 
 $(document).ready(function() {
 
-$.backstretch("https://s3-eu-west-1.amazonaws.com/grandgardendesigns/background.jpg");
+    $.backstretch("https://s3-eu-west-1.amazonaws.com/grandgardendesigns/background.jpg");
 });
 
 //overlay
@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 
 
-$("img[rel]").overlay();
+    $("img[rel]").overlay();
 });
 
 // usage: log('inside coolFunc',this,arguments);
@@ -66,14 +66,57 @@ jQuery(function() {
     jQuery('.wymeditor').wymeditor();
 });
 
-$("#title h2").hover(
-    function () {
-        $(this).css('color', '#000000');
-    },
-    function () {
-        $(this).css('color', '#319825');
-    }
-    );
+$(document).ready(function() {
+    $(".services").hover(
+        function () {
+            $(this).stop().animate({
+                opacity:0.8
+            },
+            500
+            );
+            $(this).find("h2").stop().animate({
+                color:"#000000"
+            },
+            500
+            );
+        },
+        function () {
+            $(this).stop().animate({
+                opacity:1.0
+            }, 
+            500
+            );
+            $(this).find("h2").stop().animate({
+                color:"#319825"
+            },
+            500
+            );
+        }
+        );
+});
+
+//gallery image mouse overs
+$(document).ready(function() {
+    $(".thumbnails").hover(
+        function() {
+            $(this).stop().animate({
+                opacity:0.5
+            },
+            300
+            );
+        },
+        function () {
+            $(this).stop().animate({
+                opacity:1.0
+            },
+            300
+            );
+        })
+
+       
+    
+    
+});
 
 
 

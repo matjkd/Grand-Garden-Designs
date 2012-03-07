@@ -44,15 +44,24 @@
 		
 		font-size:15px;
 		margin:0 0 0px 0px;
-	}
+        }
+	
+                
+                #triggers img{
+                
+                float:left;
+                margin:15px;
+        }
     
 </style>
 <div id="triggers">
 <?php foreach($content as $row):?>
 
-<img width="200px" src="https://s3-eu-west-1.amazonaws.com/grandgardendesigns/thumb_<?=$row->news_image?>" rel="#img_<?=$row->content_id?>"/>
+<img class="thumbnails" width="200px" height="133px" src="https://s3-eu-west-1.amazonaws.com/grandgardendesigns/thumb_<?=$row->news_image?>" rel="#img_<?=$row->content_id?>"/>
 
 <?php endforeach; ?>
+</div>
+<div style="clear:both;">
 </div>
 
 <?php foreach($content as $row):?>
@@ -65,7 +74,14 @@
 	<div class="details">
 		<h3><?=$row->title?></h3>
 
-		
+		<?php 
+$is_logged_in = $this->session->userdata('is_logged_in');
+		if(!isset($is_logged_in) || $is_logged_in == true)
+		{
+			echo "<a href='".base_url()."admin/edit/".$row->content_id."'>Edit this page</a><br/>";
+		}	
+
+?>
 
 		<p><?=$row->content?></p>
 	</div>

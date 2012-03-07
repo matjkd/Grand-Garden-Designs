@@ -11,7 +11,7 @@ if (isset($metatitle) && $metatitle != NULL) {
     if (isset($title) && $title != NULL) {
         echo $title;
     } else {
-        echo "Grand Garden Design";
+        echo "Grand Garden Design - Beautiful Garden Designs, Outdoor Buildings and Landscaping";
     }
 }
 ?></title>
@@ -19,10 +19,18 @@ if (isset($metatitle) && $metatitle != NULL) {
 if (isset($meta_description) && $meta_description != NULL) {
     echo $meta_description;
 } else {
-    
+    echo "We are a highly experienced leading landscaping and garden designer based in Essex";
 }
 ?>">
-<meta name="author" content="Redstudio Design Limited">
+
+<meta name="keywords" content="<?php
+if (isset($meta_keywords) && $meta_keywords != NULL) {
+    echo $meta_keywords;
+} else {
+    echo "landscaping,landscaping gardens, home garden landscaping, paving and landscaping, patio landscaping, landscaping services, garden landscaping services, landscaping essex, landscape gardeners, landscape gardening.";
+}
+?>">
+<meta name="author" content="DesignCo">
 <meta name="google-site-verification" content="5Bca4n2lBoi_50eivq5aQiBHEKzJoUk9O-twnLjFUL0" />
 <!--  Mobile viewport optimized: j.mp/bplateviewport -->
 <meta name="viewport" content="width=960, initial-scale=1.0">

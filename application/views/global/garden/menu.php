@@ -3,6 +3,7 @@
     <li><?= anchor('/', 'home') ?></li>
     <li><?= anchor('/about', 'about us') ?></li>
     <li><?= anchor('/services', ' our services') ?></li>
+     <li><?= anchor('/welcome/gallery/artists_impressions', ' artist impressions') ?></li>
 
     <li><?= anchor('/testimonials', 'testimonials') ?></li>
 

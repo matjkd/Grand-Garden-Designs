@@ -81,6 +81,9 @@ padding:97px 17px 17px 17px;
     margin: 0px auto;
 padding:0px;
 }
+.footertext a {
+    color:#fff;
+}
 #logo {
     float:left;
     display:block;
@@ -118,7 +121,7 @@ padding:0px;
 }
 #menutop li {
     display:inline;
-    padding-right:25px;
+    padding-right:17px;
 }
 
 #menutop a {
@@ -128,7 +131,7 @@ padding:0px;
 
 .footermenu {
     clear:both;
-    float:left; 
+   text-align: center;
   
     
     position:relative; 

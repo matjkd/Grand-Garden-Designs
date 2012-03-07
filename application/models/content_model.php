@@ -13,18 +13,25 @@ class Content_model extends CI_Model {
 
         $this->db->where('menu', $title);
         $query = $this->db->get('content');
-        if ($query->num_rows == 1)
-             {
+        if ($query->num_rows == 1) {
             return $query->result();
         }
     }
-    
+
     function get_gallery($gallery) {
 
         $this->db->where('gallery', $gallery);
         $query = $this->db->get('content');
-        if ($query->num_rows > 0)
-           {
+        if ($query->num_rows > 0) {
+            return $query->result();
+        }
+    }
+    
+     function get_testimonials() {
+
+        $this->db->where('category', 'testimonial');
+        $query = $this->db->get('content');
+        if ($query->num_rows > 0) {
             return $query->result();
         }
     }
@@ -33,8 +40,7 @@ class Content_model extends CI_Model {
         $this->db->select('menu, title, content_id');
         $this->db->where('category', 'seo');
         $query = $this->db->get('content');
-        if ($query->num_rows > 0)
-            {
+        if ($query->num_rows > 0) {
             return $query->result();
         }
     }
@@ -55,9 +61,11 @@ class Content_model extends CI_Model {
         $content_update = array(
             'content' => $this->input->post('content'),
             'menu' => $this->input->post('menu'),
+            'gallery' => $this->input->post('gallery'),
             'title' => $this->input->post('title'),
             'extra' => $this->input->post('extra'),
             'meta_desc' => $this->input->post('meta_desc'),
+             'meta_keywords' => $this->input->post('meta_keywords'),
             'meta_title' => $this->input->post('meta_title'),
             'sidebox' => $this->input->post('sidebox')
         );
@@ -139,7 +147,7 @@ class Content_model extends CI_Model {
 
         //process menu link
         $menu_link = $this->input->post('menu');
-        $search =array(" ");
+        $search = array(" ");
         $replace = "-";
         if ($menu_link == NULL) {
 
@@ -148,7 +156,6 @@ class Content_model extends CI_Model {
         } else {
             $subject = $this->input->post('menu');
             $menu_link = str_replace($search, $replace, $subject);
-            
         }
 
         // build array for the model
@@ -159,7 +166,7 @@ class Content_model extends CI_Model {
         $form_data = array(
             'title' => set_value('title'),
             'content' => $this->input->post('content'),
-            'menu' =>  $menu_link,
+            'menu' => $menu_link,
             'category' => set_value('category'),
             'added_by' => $name,
             'gallery' => $this->input->post('gallery'),
@@ -168,12 +175,13 @@ class Content_model extends CI_Model {
         $insert = $this->db->insert('content', $form_data);
         return $insert;
     }
+
     /**
- *
- * @param type $filename
- * @param type $blog_id
- * @return type 
- */
+     *
+     * @param type $filename
+     * @param type $blog_id
+     * @return type 
+     */
     function add_file($filename, $blog_id) {
         $content_update = array(
             'news_image' => $filename

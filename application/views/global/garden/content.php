@@ -4,15 +4,9 @@
 
 <?php foreach ($content as $row): ?>
   <!--add image if set-->
-    <?php if (isset($row->sidebox) && $row->sidebox != NULL) { ?> 
-        <div style="float:right; padding:0px 0px 0 10px;">
-            <img  src="<?= base_url() ?>images/photos/<?= $row->sidebox ?>"  />
-            <em><?php if (isset($row->caption)) {
-            echo $row->caption;
-        } ?></em>
-        </div>
-
-    <?php } ?>
+ <?php if (isset($row->sidebox) && $row->sidebox != NULL) { ?> 
+  <div style="float:left; width:530px">
+  <?php } ?>
     <h1><?= $row->title ?></h1>
 
     <?php
@@ -46,4 +40,18 @@
         <?= $this->load->view('extra/' . $row->extra) ?>
     <?php } ?>
 <?php endforeach; ?>
+    
+    
+       <?php if (isset($row->sidebox) && $row->sidebox != NULL) { ?> 
+  </div>
+        <div style="float:right; padding:0px 0px 0 10px;">
+            <img  src="<?= base_url() ?>images/photos/<?= $row->sidebox ?>"  />
+            <em><?php if (isset($row->caption)) {
+            echo $row->caption;
+        } ?></em>
+        </div>
+
+    <?php } ?>
+    
+    
     <div style="clear:both;"></div>

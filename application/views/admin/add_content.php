@@ -10,10 +10,6 @@
     <?= form_input('menu', set_value('menu')) ?>
 </p>
 
-<p>
-    Added By:<br/>
-    <?= form_input('added_by') ?>
-</p>
 
 
 
