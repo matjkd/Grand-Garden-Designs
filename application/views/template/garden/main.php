@@ -13,6 +13,7 @@
     </head>
 
     <body>
+          <input type="hidden" id="baseurl" value="<?=base_url()?>"/>
 <!--<img id="bgimg" src="<?= base_url() ?>css/garden/images/background.jpg" />-->
         <div id="header">
 
@@ -23,7 +24,7 @@
                 <?= $this->load->view('global/garden/menu') ?>
             </div> 
         </div>
-    </div>
+   
     <div id="container">
         <?php if (isset($slideshow_active) && $slideshow_active == 1) { ?>    
         <?= $this->load->view('slideshow/slideshow') ?>

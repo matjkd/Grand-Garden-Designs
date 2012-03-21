@@ -1,3 +1,4 @@
+ var base_url = $('#baseurl').val();
 
 // remap jQuery to $
 (function($){
@@ -269,4 +270,20 @@ $(document).ready(function() {
     });
 
 
+});
+	
+        
+$(function() {
+ 	
+    $(".sortable").sortable({
+        update: function(event,ui)
+        {
+            $.post(base_url + "admin/sort_gallery", {
+                pages: $('.sortable').sortable('serialize')
+            } );
+        }
+    });
+    $(".sortable").disableSelection();
+	 	
+  	
 });

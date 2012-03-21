@@ -21,6 +21,7 @@ class Content_model extends CI_Model {
     function get_gallery($gallery) {
 
         $this->db->where('gallery', $gallery);
+        $this->db->order_by('order');
         $query = $this->db->get('content');
         if ($query->num_rows > 0) {
             return $query->result();

@@ -225,6 +225,8 @@ class Admin extends MY_Controller {
             $this->session->set_flashdata('message', 'News Added');
         }
     }
+    
+    
 
     function submit_content() {
         $this->form_validation->set_rules('title', 'Title', 'trim|max_length[255]|required');
@@ -435,6 +437,19 @@ class Admin extends MY_Controller {
         $data['category'] = "gallery";
         $this->load->vars($data);
         $this->load->view('template/main');
+    }
+    
+    function sort_gallery() {
+          $pages = $this->input->post('pages');
+        parse_str($pages, $pageOrder);
+
+        // list id is retrieved from the ID on the sortable list
+        foreach ($pageOrder['gallery'] as $key => $value):
+            mysql_query("UPDATE ignite_content SET `order` = '$key' WHERE `content_id` = '$value'") or die(mysql_error());
+
+
+        //$this->db->update('practice_area_links', $pro_update);
+        endforeach;
     }
 
     function is_logged_in() {

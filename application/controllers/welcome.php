@@ -27,7 +27,7 @@ class Welcome extends MY_Controller {
             $data['title'] = $row->title;
             $data['sidebox'] = $row->sidebox;
             $data['metatitle'] = $row->meta_title;
-             $data['meta_keywords'] = $row->meta_desc;
+            $data['meta_keywords'] = $row->meta_desc;
             $data['meta_description'] = $row->meta_keywords;
             $data['slideshow_active'] = $row->slideshow;
         endforeach;
@@ -89,6 +89,29 @@ class Welcome extends MY_Controller {
 
     function gallery($gallery) {
         $data['content'] = $this->content_model->get_gallery($gallery);
+        foreach ($data['content'] as $row):
+
+           if ($row->title != NULL) {
+                $data['title'] = $row->title;
+            }
+            $data['sidebox'] = $row->sidebox;
+            
+            if ($row->meta_title != NULL) {
+                $data['metatitle'] = $row->meta_title;
+            }
+            
+             if ($row->meta_keywords != NULL) {
+            $data['meta_keywords'] = $row->meta_keywords;
+             }
+             
+              if ($row->meta_desc != NULL) {
+                $data['meta_description'] = $row->meta_desc;
+             }
+        
+            $data['slideshow_active'] = $row->slideshow;
+        endforeach;
+
+
         $data['main_content'] = "global/gallery";
         $this->load->vars($data);
         $this->load->view('template/main');

@@ -1,5 +1,5 @@
 body {
-    background: url('/images/backgrounds/mainback.jpg') repeat-x;
+
 
 }
 
@@ -21,7 +21,7 @@ h1 {
     font-weight: 700;
     text-shadow: none;
     text-decoration: none;
-     text-transform: uppercase;
+    text-transform: uppercase;
     letter-spacing: 0em;
     word-spacing: 0em;
     line-height: 1.2;
@@ -29,7 +29,7 @@ h1 {
     margin-bottom:5px;
 }
 h2 {
-font-family: 'Fanwood Text', serif;
+    font-family: 'Fanwood Text', serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -39,7 +39,7 @@ font-family: 'Fanwood Text', serif;
     letter-spacing: 0em;
     word-spacing: 0em;
     line-height: 1.2;
-      color:#319825;
+    color:#319825;
 }
 p {
 
@@ -58,7 +58,7 @@ p {
 
 #container {
     background: #fffeed;
-padding:17px;
+    padding:17px;
     width:926px;
     margin: 17px auto 0;
 
@@ -73,13 +73,14 @@ padding:17px;
     height:46px;
     width:926px;
     margin: 0px auto;
-padding:97px 17px 17px 17px;
+    padding:97px 17px 17px 17px;
     color:#ffffff;
+    position:relative;
 }
 .bottom_menu {
-     width:960px;
+    width:960px;
     margin: 0px auto;
-padding:0px;
+    padding:0px;
 }
 .footertext a {
     color:#fff;
@@ -121,7 +122,7 @@ padding:0px;
 }
 #menutop li {
     display:inline;
-    padding-right:17px;
+    padding-right:14px;
 }
 
 #menutop a {
@@ -131,9 +132,9 @@ padding:0px;
 
 .footermenu {
     clear:both;
-   text-align: center;
-  
-    
+    text-align: center;
+
+
     position:relative; 
     padding-left:0px;
 
@@ -185,7 +186,7 @@ padding:0px;
 
 .slide_area { 
     z-index:100;
- 
+
 
     position:relative;
     margin-bottom: 20px;
@@ -294,18 +295,25 @@ input:focus, textarea:focus {
 }
 
 .services {
-    
+     border:0px solid #e4d6d2;
+width:192px;
     float:left;
     padding:20px 30px;
-    
+
+}
+.title {
+    border:0px solid #000;
+    display:block;
+    width:192px;
+    clear:both;
 }
 
 #services_container {
     margin: 0 auto;
-    width:756px;
+    width:760px;
 }
-#title h2 {
+.title h2 {
     text-transform: uppercase;
     text-align: center;
-    
+
 }

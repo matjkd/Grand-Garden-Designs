@@ -1,4 +1,4 @@
-<style>
+<style type="text/css" >
     /* the overlayed element */
 .simple_overlay {
 	
@@ -52,14 +52,33 @@
                 float:left;
                 margin:15px;
         }
-    
-</style>
-<div id="triggers">
+ .sortable { list-style-type: none; margin: 0; padding: 0; }
+	.sortable li {  float: left; }
+        
+         .notsortable { list-style-type: none; margin: 0; padding: 0; }
+	.notsortable li {  float: left; }
+	</style>
+<?php 
+$is_logged_in = $this->session->userdata('is_logged_in');
+		if(!isset($is_logged_in) || $is_logged_in == true)
+		{
+			$sortclass = "sortable";
+		}	else {
+                    $sortclass = "notsortable";
+                }
+                
+                 
+
+?>
+
+<div id="triggers" >
+    <ul class="<?=$sortclass?>">
 <?php foreach($content as $row):?>
-
-<img class="thumbnails" width="200px" height="133px" src="https://s3-eu-west-1.amazonaws.com/grandgardendesigns/thumb_<?=$row->news_image?>" rel="#img_<?=$row->content_id?>"/>
-
+        <li id="gallery_<?=$row->content_id?>">
+<img  class="thumbnails"  style="width:200px; height: 133px;" alt="<?=$row->title?>" src="https://s3-eu-west-1.amazonaws.com/grandgardendesigns/thumb_<?=$row->news_image?>" rel="#img_<?=$row->content_id?>"/>
+        </li>
 <?php endforeach; ?>
+</ul>
 </div>
 <div style="clear:both;">
 </div>
@@ -68,7 +87,7 @@
 <div class="simple_overlay" id="img_<?=$row->content_id?>">
 
 	<!-- large image -->
-	<img width="675px" src="https://s3-eu-west-1.amazonaws.com/grandgardendesigns/<?=$row->news_image?>" />
+	<img style="width:675px" alt="<?=$row->title?>" src="https://s3-eu-west-1.amazonaws.com/grandgardendesigns/<?=$row->news_image?>" />
 
 	<!-- image details -->
 	<div class="details">

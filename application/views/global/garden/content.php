@@ -1,7 +1,7 @@
 <!--Main content page for garden site-->
 
 
-
+  <div style="clear:both;"></div>
 <?php foreach ($content as $row): ?>
   <!--add image if set-->
  <?php if (isset($row->sidebox) && $row->sidebox != NULL) { ?> 
