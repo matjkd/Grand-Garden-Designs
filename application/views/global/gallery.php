@@ -67,7 +67,7 @@ $is_logged_in = $this->session->userdata('is_logged_in');
                     $sortclass = "notsortable";
                 }
                 
-                 
+if($content != NULL )  {                
 
 ?>
 
@@ -107,3 +107,6 @@ $is_logged_in = $this->session->userdata('is_logged_in');
 
 </div>
 <?php endforeach; ?>
+
+
+<?php } ?>

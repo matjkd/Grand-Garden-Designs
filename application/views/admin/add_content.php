@@ -48,6 +48,7 @@ if (!isset($category)) {
             'ponds_and_pools' => 'Ponds and Pools',
             'wallsgatesrailings' => 'Walls Gates Railings',
             'artists_impressions' => 'Artists Impressions',
+              'orangeries' => 'Orangeries',
         );
         ?>
     <?= form_dropdown('gallery', $options) ?>

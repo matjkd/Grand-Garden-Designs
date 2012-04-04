@@ -31,7 +31,7 @@ if (isset($meta_keywords) && $meta_keywords != NULL) {
 }
 ?>">
 <meta name="author" content="DesignCo">
-<meta name="google-site-verification" content="5Bca4n2lBoi_50eivq5aQiBHEKzJoUk9O-twnLjFUL0" />
+<meta name="google-site-verification" content="ZtOBF7g-jbwhbuUHZvQvrUUHcIB01QSijub1CvuGOLI" />
 <!--  Mobile viewport optimized: j.mp/bplateviewport -->
 <meta name="viewport" content="width=960, initial-scale=1.0">
 

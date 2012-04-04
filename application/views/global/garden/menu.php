@@ -5,7 +5,7 @@
     <li><?= anchor('/services', ' our services') ?></li>
      <li><?= anchor('/welcome/gallery/artists_impressions', ' artist impressions') ?></li>
 
-    <li><?= anchor('/testimonials', 'testimonials') ?></li>
+    <li><?= anchor('/welcome/gallery/orangeries', 'Orangeries') ?></li>
 
     <li><?= anchor('/contact', 'contact us') ?></li>
 
